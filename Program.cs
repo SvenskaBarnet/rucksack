@@ -5,11 +5,9 @@ int count = 0;
 int sum = 0;
 string? first = null;
 string? second = null;
-string? third = null;
-
+int item = 0;
 foreach (string line in data)
 {
-    Console.WriteLine(count);
     switch (count)
     {
         case 0:
@@ -27,23 +25,17 @@ foreach (string line in data)
                 {
                     if ((int)line[i] is > 96 and < 123)
                     {
-                        Console.WriteLine(line[i]);
-                        Console.WriteLine((int)line[i]);
-                        sum += (int)line[i] - 96;
-                        Console.WriteLine(sum);
+                        item = (int)line[i] - 96;
                     }
                     else if ((int)line[i] is > 64 and < 91)
                     {
-                        Console.WriteLine(line[i]);
-                        Console.WriteLine((int)line[i]);
-                        sum += (int)line[i] - 38;
-                        Console.WriteLine(sum);
+                        item = (int)line[i] - 38;
                     }
                 }
             }
+            sum += item;
             count = 0;
             break;
     }
-}
 
 Console.WriteLine(sum);
